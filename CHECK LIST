@@ -7,4 +7,5 @@ Regras dos argmuentos
 	funcao para verificar retorna com 'error' (frase de erro);
 - Tem de ser .ber;
 	funcao para verificar o formato do ficheiro em questao, tem de ser '.ber'
+- Tem de existir um mapa e este deve ser possivel de ser eberto;
 
