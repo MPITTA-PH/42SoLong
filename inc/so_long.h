@@ -6,7 +6,7 @@
 /*   By: mpitta-p <mpitta-p@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/07 15:56:12 by miguelhenri       #+#    #+#             */
-/*   Updated: 2025/03/08 20:15:51 by mpitta-p         ###   ########.fr       */
+/*   Updated: 2025/03/08 20:22:26 by mpitta-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ typedef struct s_map
 	int		player_y;
 }			t_map;
 
-//fALTA RESTRUTURAR ISTO, ESTES DADOS DEVEM IR PARA A RESPETIVA ESTRUTURA */
+//FALTA RESTRUTURAR ISTO, ESTES DADOS DEVEM IR PARA A RESPETIVA ESTRUTURA */
 
 typedef struct	s_game
 {
