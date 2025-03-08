@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   so_long.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: miguelhenriques <miguelhenriques@studen    +#+  +:+       +#+        */
+/*   By: mpitta-p <mpitta-p@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/07 15:56:12 by miguelhenri       #+#    #+#             */
-/*   Updated: 2025/03/07 23:16:55 by miguelhenri      ###   ########.fr       */
+/*   Updated: 2025/03/08 20:15:51 by mpitta-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 # include <fcntl.h>
 # include <stdbool.h>
 # include "libft/libft.h"
+# include "minilibx-linux/mlx.h"
 
 typedef struct s_assets
 {
@@ -35,6 +36,8 @@ typedef struct s_map
 	int		player_y;
 }			t_map;
 
+//fALTA RESTRUTURAR ISTO, ESTES DADOS DEVEM IR PARA A RESPETIVA ESTRUTURA */
+
 typedef struct	s_game
 {
 	void		*mlx;
@@ -47,6 +50,13 @@ typedef struct	s_game
 	t_assets	assets;
 	t_error		error;
 	t_map		map_info;
+	//
+	void		*background;
+	void		*wall;
+	void		*player;
+	void		*colectable;
+	void		*exit;
+	void		*enemy;
 }			t_game;
 
 //Functions
