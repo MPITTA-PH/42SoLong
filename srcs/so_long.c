@@ -1,31 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   so_long.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mpitta-p <mpitta-p@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/09 15:34:20 by rcosta-c          #+#    #+#             */
-/*   Updated: 2025/02/27 17:38:37 by mpitta-p         ###   ########.fr       */
+/*   Created: 2025/03/10 17:55:48 by mpitta-p          #+#    #+#             */
+/*   Updated: 2025/03/10 18:43:47 by mpitta-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../inc/so_long.h"
 
-size_t	ft_strlen(const char *s)
+int main(int ac, char **av)
 {
-	unsigned int	counter;
+	t_game	info;
 
-	counter = 0;
-	while (s[counter] != '\0')
-		counter++;
-	return (counter);
+	args_checker(ac, av[1]);
+	//init elem
+	//init map
+	//valid map
+	//open window
+	init_elems(&info);
+	init_map(&info, av[1]);
+	validate_map(&info, av[1]);
+	ft_printf("elementos");
+	open_wind(&info);
+	
 }
-/*
-int	main()
-{
-	char	*x;
-
-	x = "asddasdasdadsd";
-	printf(" value : %zu \n", ft_strlen(x));
-} */

@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   checker_args.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: miguelhenriques <miguelhenriques@studen    +#+  +:+       +#+        */
+/*   By: mpitta-p <mpitta-p@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/07 13:43:48 by mpitta-p          #+#    #+#             */
-/*   Updated: 2025/03/07 16:01:46 by miguelhenri      ###   ########.fr       */
+/*   Updated: 2025/03/10 19:30:46 by mpitta-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include "../inc/so_long.h"
 
 void	args_checker(int ac, char *f_name)
 {
@@ -70,8 +70,8 @@ void	check_map(char *f_name)
 	fd = open(f_name, O_RDONLY);
 	if (fd < 0)
 	{
-		error("Cannot opne this map");
+		ft_error("Cannot opne this map");
 		close(fd);
-		exit;
+		//exit;
 	}
 }

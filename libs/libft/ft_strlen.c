@@ -1,19 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   error.c                                            :+:      :+:    :+:   */
+/*   ft_strlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: miguelhenriques <miguelhenriques@studen    +#+  +:+       +#+        */
+/*   By: mpitta-p <mpitta-p@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/03/07 18:23:00 by miguelhenri       #+#    #+#             */
-/*   Updated: 2025/03/07 18:25:14 by miguelhenri      ###   ########.fr       */
+/*   Created: 2024/04/09 15:34:20 by rcosta-c          #+#    #+#             */
+/*   Updated: 2025/03/10 16:48:28 by mpitta-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include "libft.h"
 
-void	ft_error(char *msg)
+size_t	ft_strlen(const char *s)
 {
-	ft_printf("ERROR - %d\n", msg);
-	exit(0);
+	int	counter;
+
+	counter = 0;
+	while (s[counter] != '\0')
+		counter++;
+	return (counter);
 }
+/*
+int	main()
+{
+	char	*x;
+
+	x = "asddasdasdadsd";
+	printf(" value : %zu \n", ft_strlen(x));
+} */

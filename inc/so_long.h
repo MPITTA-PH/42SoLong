@@ -6,7 +6,7 @@
 /*   By: mpitta-p <mpitta-p@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/07 15:56:12 by miguelhenri       #+#    #+#             */
-/*   Updated: 2025/03/08 20:22:26 by mpitta-p         ###   ########.fr       */
+/*   Updated: 2025/03/10 18:52:24 by mpitta-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,11 @@
 
 # include <fcntl.h>
 # include <stdbool.h>
-# include "libft/libft.h"
-# include "minilibx-linux/mlx.h"
+# include <stdlib.h>
+# include "../libs/libft/libft.h"
+# include "../libs/printf/ft_printf.h"
+# include "../libs/gnl/get_next_line.h"
+# include "../libs/minilibx-linux/mlx.h"
 
 typedef struct s_assets
 {
@@ -48,7 +51,7 @@ typedef struct	s_game
 	int			moves;
 	bool		game_over;
 	t_assets	assets;
-	t_error		error;
+//	t_error		error;
 	t_map		map_info;
 	//
 	void		*background;
@@ -76,6 +79,18 @@ void	args_checker(int ac, char *f_name);
 void	arg_num(int ac);
 void	arg_format(char *f_name);
 void	check_map(char *f_name);
+
+void	open_wind(t_game *info);
+
+int		measure_lines(t_game *info, char *f_name);
+
+void	validate_map_shape(t_game *info);
+
+void	init_map(t_game *info, char *f_name);
+
+void	init_elems(t_game *info);
+
+void	validate_map(t_game *info, char *f_name);
 
 
 #endif

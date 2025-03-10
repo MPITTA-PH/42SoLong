@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   map_elems.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: miguelhenriques <miguelhenriques@studen    +#+  +:+       +#+        */
+/*   By: mpitta-p <mpitta-p@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/07 15:55:08 by miguelhenri       #+#    #+#             */
-/*   Updated: 2025/03/07 18:57:17 by miguelhenri      ###   ########.fr       */
+/*   Updated: 2025/03/10 12:28:35 by mpitta-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include "../inc/so_long.h"
 
 void	player_position(t_game *info, int x, int y)
 {
@@ -23,9 +23,9 @@ void	player_position(t_game *info, int x, int y)
 
 int	invalid_element(t_game *info, int x, int y)
 {
-	if (info->map_info.grid[y][x] == 'P' || info->map_info.grid != 'E'
-		|| info->map_info.grid != 'C' || info->map_info.grid != '0'
-		|| info->map_info.grid != '1' || info->map_info.grid != 'X') //aqui talvez faça falta a quebra de linha o ou NULL
+	if (info->map_info.grid[y][x] != 'P' && info->map_info.grid[y][x] != 'E'
+		&& info->map_info.grid[y][x] != 'C' && info->map_info.grid[y][x] != '0'
+		&& info->map_info.grid[y][x] != '1' && info->map_info.grid[y][x] != 'X') //aqui talvez faça falta a quebra de linha o ou NULL
 	{
 		return (-1);
 	}
@@ -65,7 +65,7 @@ void	elem_counter(t_game *info, int end_x, int end_y)
 			else if (info->map_info.grid[y][x] == 'E')
 				info->map_info.n_exit++;
 			if (invalid_element(info, x, y))
-				error("Invalid elements were found");
+				ft_error("Invalid elements were found");
 			y++;
 		}
 		x++;
