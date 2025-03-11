@@ -6,7 +6,7 @@
 /*   By: mpitta-p <mpitta-p@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/07 15:55:08 by miguelhenri       #+#    #+#             */
-/*   Updated: 2025/03/10 12:28:35 by mpitta-p         ###   ########.fr       */
+/*   Updated: 2025/03/11 12:22:17 by mpitta-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ void	elem_counter(t_game *info, int end_x, int end_y)
 
 	x = 0;
 	y = 0;
-	while (x <= end_x || y <= end_y)
+	while (x <= end_x)
 	{
 		y = 0;
 		while (y <= end_y)
@@ -71,6 +71,7 @@ void	elem_counter(t_game *info, int end_x, int end_y)
 		x++;
 	}
 }
+
 void	set_map_limits(t_game *info)
 {
 	int	end_x;
