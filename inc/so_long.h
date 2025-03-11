@@ -6,7 +6,7 @@
 /*   By: mpitta-p <mpitta-p@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/07 15:56:12 by miguelhenri       #+#    #+#             */
-/*   Updated: 2025/03/11 12:45:49 by mpitta-p         ###   ########.fr       */
+/*   Updated: 2025/03/11 15:05:56 by mpitta-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,14 @@ typedef struct s_assets
 {
 	
 }			t_assets;
+
+typedef struct s_flood
+{
+	int		collectibles;
+	int		exit_founded;
+	int		width;
+	int		heigth;
+}			t_flood;
 
 typedef struct s_map
 {
@@ -95,6 +103,8 @@ void	validate_map(t_game *info, char *f_name);
 //MAP VALIDATION
 void	validate_map_walls(t_game *info);
 
+//PATH VALIDATION
+void	validate_path(t_game *info);
 
 /* static void	init_image(t_game *info); */
 

@@ -6,7 +6,7 @@
 /*   By: mpitta-p <mpitta-p@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/10 12:00:33 by mpitta-p          #+#    #+#             */
-/*   Updated: 2025/03/10 19:23:13 by mpitta-p         ###   ########.fr       */
+/*   Updated: 2025/03/11 15:52:37 by mpitta-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,8 @@ void	open_wind(t_game *info)
 	int	window_width = (info->map_info.width - 1) * 64;
 	int	window_height = info->map_info.height * 64;
 
-	ft_printf("W:%d | H:%d\n", window_width, window_height);
-	
+/* 	ft_printf("W:%d | H:%d\n", window_width, window_height);
+ */	
 	
 	info->mlx = mlx_init();
 	if (!info->mlx)

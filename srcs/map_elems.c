@@ -6,7 +6,7 @@
 /*   By: mpitta-p <mpitta-p@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/07 15:55:08 by miguelhenri       #+#    #+#             */
-/*   Updated: 2025/03/11 12:22:17 by mpitta-p         ###   ########.fr       */
+/*   Updated: 2025/03/11 15:51:11 by mpitta-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,8 @@ void	player_position(t_game *info, int x, int y)
 	info->map_info.n_player++;
 	info->map_info.player_x = x;
 	info->map_info.player_y = y;
-	ft_printf("P_X = %d\n", x);
-	ft_printf("P_Y = %d\n", y);
+/* 	ft_printf("P_X = %d\n", x);
+	ft_printf("P_Y = %d\n", y); */
 }
 
 int	invalid_element(t_game *info, int x, int y)

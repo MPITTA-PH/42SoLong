@@ -6,7 +6,7 @@
 /*   By: mpitta-p <mpitta-p@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/10 17:55:48 by mpitta-p          #+#    #+#             */
-/*   Updated: 2025/03/11 11:42:33 by mpitta-p         ###   ########.fr       */
+/*   Updated: 2025/03/11 15:53:10 by mpitta-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ int main(int ac, char **av)
 	init_elems(&info);
 	init_map(&info, av[1]);
 	validate_map(&info, av[1]);
-	ft_printf("elementos");
+	validate_path(&info);
 	open_wind(&info);
 /* 	init_image(&info); */
 }
