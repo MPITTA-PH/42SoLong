@@ -6,7 +6,7 @@
 /*   By: mpitta-p <mpitta-p@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/10 12:00:33 by mpitta-p          #+#    #+#             */
-/*   Updated: 2025/03/11 15:52:37 by mpitta-p         ###   ########.fr       */
+/*   Updated: 2025/03/11 19:57:21 by mpitta-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,5 +31,4 @@ void	open_wind(t_game *info)
 		free(info->mlx);
 		ft_error("Nao abriu a janela!");
 	}
-	mlx_loop(info->mlx);
 }

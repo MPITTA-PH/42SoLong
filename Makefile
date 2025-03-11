@@ -6,7 +6,7 @@
 #    By: mpitta-p <mpitta-p@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/03/10 12:03:32 by mpitta-p          #+#    #+#              #
-#    Updated: 2025/03/11 15:20:33 by mpitta-p         ###   ########.fr        #
+#    Updated: 2025/03/11 19:44:41 by mpitta-p         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -29,7 +29,7 @@ GNL = $(GNL_DIR)/get_next_line.a
 MINILIBX = $(MINILIBX_DIR)/libmlx.a
 
 # Diretórios e arquivos fonte
-SOURCES = srcs/validate_map.c srcs/so_long.c srcs/open_win.c srcs/map_elems.c srcs/init_map.c srcs/game_init.c srcs/ft_error.c srcs/checker_args.c srcs/path_validation.c
+SOURCES = srcs/validate_map.c srcs/so_long.c srcs/open_win.c srcs/map_elems.c srcs/init_map.c srcs/game_init.c srcs/ft_error.c srcs/checker_args.c srcs/path_validation.c srcs/render.c
 
 SO_LONG_OBJ_DIR = srcs/objs
 SO_LONG_OBJS = $(SOURCES:srcs/%.c=$(SO_LONG_OBJ_DIR)/%.o)

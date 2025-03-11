@@ -6,7 +6,7 @@
 /*   By: mpitta-p <mpitta-p@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/07 15:56:12 by miguelhenri       #+#    #+#             */
-/*   Updated: 2025/03/11 15:05:56 by mpitta-p         ###   ########.fr       */
+/*   Updated: 2025/03/11 19:47:05 by mpitta-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -105,6 +105,12 @@ void	validate_map_walls(t_game *info);
 
 //PATH VALIDATION
 void	validate_path(t_game *info);
+
+void	init_image(t_game *info);
+
+//RENDER
+void	render_tile(t_game *info, int x, int y);
+void 	render_map(t_game *info);
 
 /* static void	init_image(t_game *info); */
 

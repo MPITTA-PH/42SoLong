@@ -6,7 +6,7 @@
 /*   By: mpitta-p <mpitta-p@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/10 17:55:48 by mpitta-p          #+#    #+#             */
-/*   Updated: 2025/03/11 15:53:10 by mpitta-p         ###   ########.fr       */
+/*   Updated: 2025/03/11 20:00:14 by mpitta-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,5 +26,8 @@ int main(int ac, char **av)
 	validate_map(&info, av[1]);
 	validate_path(&info);
 	open_wind(&info);
+	init_image(&info);
+	render_map(&info);	
+	mlx_loop(info.mlx);
 /* 	init_image(&info); */
 }
