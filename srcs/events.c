@@ -6,7 +6,7 @@
 /*   By: mpitta-p <mpitta-p@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/12 14:36:57 by mpitta-p          #+#    #+#             */
-/*   Updated: 2025/03/12 18:10:34 by mpitta-p         ###   ########.fr       */
+/*   Updated: 2025/03/12 19:00:19 by mpitta-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,11 +19,11 @@ int	key_press(int keycode, t_game	*info)
 		close_window(info);
 	else if (keycode == 119)
 		move_player(info, 0, -1); //mover Up Arrow
-	else if (keycode == 65364)
+	else if (keycode == 115)
 		move_player(info, 0, +1); //mover Down Arrow
-	else if (keycode == 65361)
+	else if (keycode == 97)
 		move_player(info, -1, 0); //mover Left Arrow
-	else if (keycode == 65363)
+	else if (keycode == 100)
 		move_player(info, 1, 0); //mover Right Arrow
 	return (0);
 }
@@ -92,7 +92,7 @@ void	move_player(t_game *info, int dir_x, int dir_y)
 	if (next_tile == 'C')
 	{
 		info->map_info.n_collects--;
-		info->map_info.grid[new_y][new_x] == '0';
+		info->map_info.grid[new_y][new_x] = '0';
 		ft_printf("Collectible gathered!🐤 Remaining: %d\n", info->map_info.n_collects); //aqui posso mudar o novo tile para invez de ser so o chao ser uma versao da base do coletavel;
 		update_exit_status(info);
 	}
@@ -117,8 +117,8 @@ void	move_player(t_game *info, int dir_x, int dir_y)
 		close_window(info);
 	}
 	//aqui atualizo a posicao do player no mapa e reseto a sua posicao antiga
-	info->map_info.grid[info->map_info.player_y][info->map_info.player_x] == '0';
-	info->map_info.grid[new_y][new_y] == 'P';
+	info->map_info.grid[info->map_info.player_y][info->map_info.player_x] = '0';
+	info->map_info.grid[new_y][new_x] = 'P';
 
 	//aqui atualizo as coordenadas do player
 	info->map_info.player_x = new_x;
