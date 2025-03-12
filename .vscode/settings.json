@@ -62,7 +62,7 @@
   "workbench.colorTheme": "Default Dark Modern",
   "workbench.editor.decorations.colors": true,
   "files.associations": {
-	"so_long.h": "c",
-	"mlx.h": "c"
-}
+    "so_long.h": "c",
+    "mlx.h": "c"
+  }
 }

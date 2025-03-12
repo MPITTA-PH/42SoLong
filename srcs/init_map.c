@@ -6,7 +6,7 @@
 /*   By: mpitta-p <mpitta-p@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/10 17:26:44 by mpitta-p          #+#    #+#             */
-/*   Updated: 2025/03/11 14:49:23 by mpitta-p         ###   ########.fr       */
+/*   Updated: 2025/03/12 15:43:19 by mpitta-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,4 +49,11 @@ void	init_elems(t_game *info)
 	info->map_info.n_collects = 0;
 	info->map_info.n_exit = 0;
 	info->moves = 0;//falta criar
+
+	info->background = NULL;
+	info->wall = NULL;
+	info->player = NULL;
+	info->colectable = NULL;
+	info->exit = NULL;
+	info->enemy = NULL;
 }

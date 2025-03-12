@@ -6,7 +6,7 @@
 /*   By: mpitta-p <mpitta-p@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/07 15:56:12 by miguelhenri       #+#    #+#             */
-/*   Updated: 2025/03/11 19:47:05 by mpitta-p         ###   ########.fr       */
+/*   Updated: 2025/03/12 18:10:36 by mpitta-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,10 +21,10 @@
 # include "../libs/gnl/get_next_line.h"
 # include "../libs/minilibx-linux/mlx.h"
 
-typedef struct s_assets
+/* typedef struct s	_assets
 {
 	
-}			t_assets;
+}			t_assets; */
 
 typedef struct s_flood
 {
@@ -58,7 +58,7 @@ typedef struct	s_game
 	int			window_y;
 	int			moves;
 	bool		game_over;
-	t_assets	assets;
+//	t_assets	assets;
 //	t_error		error;
 	t_map		map_info;
 	//
@@ -113,6 +113,14 @@ void	render_tile(t_game *info, int x, int y);
 void 	render_map(t_game *info);
 
 /* static void	init_image(t_game *info); */
+
+//KEY EVENTS
+int	key_press(int keycode, t_game	*info);
+int	close_window(t_game *info);
+void	move_player(t_game *info, int dir_x, int dir_y);
+
+void	update_exit_status(t_game *info);
+
 
 
 #endif

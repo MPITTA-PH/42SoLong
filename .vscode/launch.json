@@ -6,8 +6,8 @@
       "type": "lldb",
       "request": "launch",
       "args": [],
-      "cwd": "/Users/miguelhenriques/Documents/42CommonCore/42SoLong",
-      "program": "/Users/miguelhenriques/Documents/42CommonCore/42SoLong/build/Debug/outDebug"
+      "cwd": "/home/mpitta-p/Documents/42SoLong/srcs",
+      "program": "/home/mpitta-p/Documents/42SoLong/srcs/build/Debug/outDebug"
     }
   ]
 }
