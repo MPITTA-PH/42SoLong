@@ -58,6 +58,7 @@ typedef struct	s_game
 	int			window_y;
 	int			moves;
 	bool		game_over;
+	bool		key_pressed;
 //	t_assets	assets;
 //	t_error		error;
 	t_map		map_info;
@@ -121,6 +122,7 @@ void	move_player(t_game *info, int dir_x, int dir_y);
 
 void	update_exit_status(t_game *info);
 
+int	key_release(int keycode, t_game *info);
 
 
 #endif

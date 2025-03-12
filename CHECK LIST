@@ -1,11 +1,14 @@
-CHECK LIST
+Notas
 
-***Checkar os argumentos***
 
-Regras dos argmuentos
-- Tem de ser dois;
-	funcao para verificar retorna com 'error' (frase de erro);
-- Tem de ser .ber;
-	funcao para verificar o formato do ficheiro em questao, tem de ser '.ber'
-- Tem de existir um mapa e este deve ser possivel de ser eberto;
+12/Mar
 
+No final do dia o jogo abria, quando uso a funcao release_key com a flag (1) o player so se move uma vez e depois bloqueia, se usar com a flag em (0) ele anda mas com o bug de dar refresh ao ecra todo;
+Se nao usar a funcao de render_map(info) no final de events na funcao move_player, o mapa nao renderiza todo mas quando o player se move das duas uma, ou buga o mapa e aperece um bloco desformatado(grande),
+	ou entao anda uma vez e bloqueia;
+Com estas funcaoes novas, na tentaiva de reconhecer o key_release, o jogo comecou a bugar, ou nao mexe, ou mexe e desformata, ou mexe e deixa de mexer do nada, e depois volta, ficou estranho...
+
+
+->	Para 13/Mar
+
+Quero resolver o bug de dar refresh ao mapa de forma visivel, o jogo esta com bugs quando fico a carregar continuamente numa tecla;

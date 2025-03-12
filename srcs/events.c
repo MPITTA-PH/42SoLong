@@ -15,6 +15,10 @@
 
 int	key_press(int keycode, t_game	*info)
 {
+	if (info->key_pressed)
+		return (0);
+
+	info->key_pressed = 1;
 	if (keycode == 65307)
 		close_window(info);
 	else if (keycode == 119)
@@ -25,6 +29,15 @@ int	key_press(int keycode, t_game	*info)
 		move_player(info, -1, 0); //mover Left Arrow
 	else if (keycode == 100)
 		move_player(info, 1, 0); //mover Right Arrow
+	else
+		info->key_pressed = 0;
+	return (0);
+}
+
+int	key_release(int keycode, t_game *info)
+{
+	if (keycode == 110 || keycode == 115 || keycode == 97 || keycode == 100)
+		info->key_pressed = 0;
 	return (0);
 }
 
@@ -47,7 +60,7 @@ int	close_window(t_game *info)
 	if (info->exit)
 		mlx_destroy_image(info->mlx, info->exit);
 	
-	if (info->exit)
+	if (info->enemy)
 		mlx_destroy_image(info->mlx, info->enemy);
 
 	if (info->window)
@@ -75,15 +88,18 @@ int	close_window(t_game *info)
 
 void	move_player(t_game *info, int dir_x, int dir_y)
 {
-	int	new_x;
-	int	new_y;
+	int		new_x;
+	int		new_y;
 	char	next_tile;
-
+	int		old_x;
+	int		old_y;
+/* 	char	*moves_str;
+ */
 	new_x = info->map_info.player_x + dir_x;
 	new_y = info->map_info.player_y + dir_y;
 
 	if (new_x < 0 || new_x >= info->map_info.width || new_y < 0 || new_y >= info->map_info.height)
-		return ;
+		return;
 	
 	next_tile = info->map_info.grid[new_y][new_x];
 	if (next_tile == '1')
@@ -108,7 +124,7 @@ void	move_player(t_game *info, int dir_x, int dir_y)
 		{
 			ft_printf("You need to gather all the collectible to open the exit!");
 		}
-		return ;
+		return;
 	}
 	//funcao para morrer e fechar a janela se tocar num inimigo
 	if (next_tile == 'X')
@@ -116,6 +132,9 @@ void	move_player(t_game *info, int dir_x, int dir_y)
 		ft_printf("💀🪦Game over!🪦💀 You've hit a enemy after %d moves...\n", info->moves + 1);
 		close_window(info);
 	}
+	old_x = info->map_info.player_x;
+	old_y = info->map_info.player_y;
+
 	//aqui atualizo a posicao do player no mapa e reseto a sua posicao antiga
 	info->map_info.grid[info->map_info.player_y][info->map_info.player_x] = '0';
 	info->map_info.grid[new_y][new_x] = 'P';
@@ -126,9 +145,20 @@ void	move_player(t_game *info, int dir_x, int dir_y)
 
 	//incrementar em moves para exibir no ecra
 	info->moves++;
-
 	ft_printf("Moves: %d\n", info->moves);
 
-	//voltar a renderizar o mapa com todas as atualizacoes
-	render_map(info);
-}
+	render_tile(info, old_x, old_y);
+	render_tile(info, info->map_info.player_x, info->map_info.player_y);
+/* 
+
+	moves_str = ft_itoa(info->moves);
+	if (moves_str == NULL)
+		ft_error("Failed to allocate memory for 'moves_str'");
+	
+	mlx_string_put(info->mlx, info->window, 10, 20, 0X000000, "             "); // Clear previous text
+	mlx_string_put(info->mlx, info->window, 10, 20, 0XFFFFFF, "Moves:");
+	mlx_string_put(info->mlx, info->window, 70, 20, 0XFFFFFF, moves_str);
+	free(moves_str); */
+  	//voltar a renderizar o mapa com todas as atualizacoes
+	render_map(info); 
+} 

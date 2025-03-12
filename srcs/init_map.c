@@ -49,6 +49,7 @@ void	init_elems(t_game *info)
 	info->map_info.n_collects = 0;
 	info->map_info.n_exit = 0;
 	info->moves = 0;//falta criar
+	info->key_pressed = 0;
 
 	info->background = NULL;
 	info->wall = NULL;

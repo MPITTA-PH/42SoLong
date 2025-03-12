@@ -48,6 +48,7 @@ int main(int ac, char **av)
  */	//keypress hooks
 	mlx_hook(info.window, 2, 1L<<0, key_press, &info);
 	mlx_hook(info.window, 17, 0, close_window, &info);     // Window close event
+	mlx_hook(info.window, 3, 1L<<1, key_release, &info);
 /* 	ft_printf("Hooks set up successfully\n");
  */
 /* 	ft_printf("Starting MLX loop...\n"); */
