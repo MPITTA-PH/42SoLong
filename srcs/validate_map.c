@@ -12,13 +12,12 @@
 
 #include "../inc/so_long.h"
 
-void	validate_map(t_game *info, char *f_name)
+void validate_map(t_game *info)
 {
-	measure_lines(info, f_name);
-	validate_map_shape(info);
-	validate_map_walls(info);
-	set_map_limits(info);
-	num_of_elems(info);
+    validate_map_shape(info);
+    validate_map_walls(info);
+    set_map_limits(info);
+    num_of_elems(info);
 }
 
 int	measure_lines(t_game *info, char *f_name)
@@ -29,7 +28,7 @@ int	measure_lines(t_game *info, char *f_name)
 
 	fd = open(f_name, O_RDONLY);
 	if (fd < 0)
-		ft_error("Nao foi possivel abrir o ficheiro");
+		ft_error("Failed to open map file");
 	n_lines = 0;
 	line = get_next_line(fd);
 	while (line)
@@ -40,29 +39,31 @@ int	measure_lines(t_game *info, char *f_name)
 	}
 	close (fd);
 	if (n_lines == 0)
-		ft_error("Altura invalida");
+		ft_error("Ivalid map height. Map is empty");
 	info->map_info.height = n_lines;
 	return (n_lines);
 }
 
-void	validate_map_shape(t_game *info)
+void validate_map_shape(t_game *info)
 {
-	int		i;
-	size_t	f_line;
+    int     i;
+    size_t  first_line_len;
 
-	if (!info->map_info.grid || !info->map_info.grid[0])
-		ft_error("Tamanho do mapa invalido");
-	f_line = ft_strlen(info->map_info.grid[0]);
-	i = 1;
-	while (info->map_info.grid[i])
-	{
-		if (ft_strlen(info->map_info.grid[i]) != f_line)
-			ft_error("Comprimento do mapa invalido!");
-		i++;
-	}
-	info->map_info.width = f_line;
+    if (!info->map_info.grid || !info->map_info.grid[0])
+        ft_error("Invalid map size");
+    
+    // Get length without potential newline
+    first_line_len = ft_strlen(info->map_info.grid[0]);
+    
+    i = 1;
+    while (info->map_info.grid[i])
+    {
+        if (ft_strlen(info->map_info.grid[i]) != first_line_len)
+            ft_error("Invalid map shape");
+        i++;
+    }
+    info->map_info.width = first_line_len;
 }
-
 void	validate_map_walls(t_game *info)
 {
 	int	i;
@@ -74,17 +75,15 @@ void	validate_map_walls(t_game *info)
 	width = info->map_info.width;
 	while (i < width)
 	{
-		if (info->map_info.grid[0][i] != '1' || info->map_info.grid[height - 1][i] != '1')
-			ft_error("The map is not surrounded by 1's!");
-		else
-			i++;
+		if (info->map_info.grid[0][i] != WALL || info->map_info.grid[height - 1][i] != WALL)
+			ft_error("The map is not surrounded by walls");
+		i++;
 	}
 	i = 0;
 	while (i < height)
 	{
-		if (info->map_info.grid[i][0] != '1' || info->map_info.grid[i][width - 1] != '1')
-			ft_error("The map os not surrounded by 1's");
-		else
-			i++;
+		if (info->map_info.grid[i][0] != WALL || info->map_info.grid[i][width - 1] != WALL)
+			ft_error("The map is not surrounded by walls");
+		i++;
 	}
 }

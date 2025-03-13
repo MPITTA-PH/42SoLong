@@ -17,15 +17,17 @@ void	player_position(t_game *info, int x, int y)
 	info->map_info.n_player++;
 	info->map_info.player_x = x;
 	info->map_info.player_y = y;
-/* 	ft_printf("P_X = %d\n", x);
-	ft_printf("P_Y = %d\n", y); */
 }
 
 int	invalid_element(t_game *info, int x, int y)
 {
-	if (info->map_info.grid[y][x] != 'P' && info->map_info.grid[y][x] != 'E'
-		&& info->map_info.grid[y][x] != 'C' && info->map_info.grid[y][x] != '0'
-		&& info->map_info.grid[y][x] != '1' && info->map_info.grid[y][x] != 'X') //aqui talvez faça falta a quebra de linha o ou NULL
+	char	element;
+
+	element = info->map_info.grid[y][x];
+
+	if (element != PLAYER && element != EXIT
+		&& element != COLLECTIBLE && element != EMPTY
+		&& element != WALL && element != ENEMY) 
 	{
 		return (-1);
 	}
@@ -48,21 +50,22 @@ void	elem_counter(t_game *info, int end_x, int end_y)
 {
 	int	x;
 	int	y;
+	char	element;
 
 	x = 0;
-	y = 0;
 	while (x <= end_x)
 	{
 		y = 0;
 		while (y <= end_y)
 		{
-			if (info->map_info.grid[y][x] == 'P')
+			element = info->map_info.grid[y][x];
+			if (element == PLAYER)
 				player_position(info, x, y);
-			else if (info->map_info.grid[y][x] == 'C')
+			else if (element == COLLECTIBLE)
 				info->map_info.n_collects++;
-			else if (info->map_info.grid[y][x] == 'X')
+			else if (element == ENEMY)
 				info->map_info.n_enemy++;
-			else if (info->map_info.grid[y][x] == 'E')
+			else if (element == EXIT)
 				info->map_info.n_exit++;
 			if (invalid_element(info, x, y))
 				ft_error("Invalid elements were found");

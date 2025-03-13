@@ -23,44 +23,24 @@ void	args_checker(int ac, char *f_name)
 void	arg_num(int ac)
 {
 	if (ac > 2)
-	{
-		ft_printf("ERROR - to many arguments");
-		exit (EXIT_FAILURE);
-	}
+		ft_error("To many arguments");
 	if (ac < 2)
-	{
-		ft_printf("ERROR - insufficient arguments");
-		exit (EXIT_FAILURE);
-	}
+	ft_error("Insufficient arguments");
 }
 
 void	arg_format(char *f_name)
 {
-	int	i;
-	int	j;
-	char	*format;
+	size_t	len;
+	char	*extension;
 
-	i = ft_strlen(f_name) - 4;
-	j = 0;
-	format = ".ber";
-	if (f_name[i - 1] == '/' || f_name[i - 1] == '\0')
-	{
-		ft_printf("ERROR - Wrong file.");
-		exit (EXIT_FAILURE);
-	}
-	while (f_name[i])
-	{
-		if (f_name[i] == format[j])
-		{
-			i++;
-			j++;
-		}
-		else
-		{
-			ft_printf("ERROR - file format not supported");
-			exit (EXIT_FAILURE);
-		}
-	}
+	len = ft_strlen(f_name);
+	if (len < 5)
+		ft_error("Invalid file name");
+	extension = f_name + (len - 4);
+	if (ft_strncmp(extension, ".ber", 4) != 0)
+		ft_error("File format no supported(must be '.ber')");
+	if (len == 4 || f_name[len - 5] == '/')
+		ft_error("Invalid file name");
 }
 
 void	check_map(char *f_name)
@@ -69,9 +49,6 @@ void	check_map(char *f_name)
 	
 	fd = open(f_name, O_RDONLY);
 	if (fd < 0)
-	{
 		ft_error("Cannot opne this map");
-		close(fd);
-		//exit;
-	}
+	close (fd);
 }

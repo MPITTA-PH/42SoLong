@@ -29,7 +29,17 @@ GNL = $(GNL_DIR)/get_next_line.a
 MINILIBX = $(MINILIBX_DIR)/libmlx.a
 
 # Diretórios e arquivos fonte
-SOURCES = srcs/checker_args.c srcs/events.c srcs/ft_error.c srcs/game_init.c srcs/init_map.c srcs/map_elems.c srcs/open_win.c srcs/path_validation.c srcs/render.c srcs/so_long.c srcs/validate_map.c
+SOURCES = srcs/checker_args.c \
+			srcs/ft_error.c \
+			srcs/game_init.c \
+			srcs/free_resources.c \
+			srcs/init_map.c \
+			srcs/map_elems.c \
+			srcs/path_validation.c \
+			srcs/render.c \
+			srcs/so_long.c \
+			srcs/events.c \
+			srcs/validate_map.c 
 
 SO_LONG_OBJ_DIR = srcs/objs
 SO_LONG_OBJS = $(SOURCES:srcs/%.c=$(SO_LONG_OBJ_DIR)/%.o)
@@ -54,7 +64,8 @@ $(NAME): $(SO_LONG_OBJS) $(LIBFT) $(FT_PRINTF) $(GNL) $(MINILIBX)
 # Compilação dos objetos do so_long
 $(SO_LONG_OBJ_DIR)/%.o: srcs/%.c
 		@mkdir -p $(SO_LONG_OBJ_DIR)
-		@$(CC) $(CFLAGS) -c $< -o $@ > /dev/null 2>&1
+		@$(CC) $(CFLAGS) -c $< -o $@
+# > /dev/null 2>&1
 
 # Compilação de libft
 $(LIBFT):

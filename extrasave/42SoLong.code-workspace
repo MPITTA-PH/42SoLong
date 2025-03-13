@@ -1,0 +1,19 @@
+{
+	"folders": [
+		{
+			"path": ".."
+		}
+	],
+	"settings": {
+		"workbench.activityBar.iconClickBehavior": "toggle",
+		"workbench.activityBar.location": "top",
+		"workbench.preferredHighContrastColorTheme": "Default High Contrast Light",
+		"workbench.colorTheme": "Default Dark Modern",
+		"workbench.editor.decorations.colors": true,
+		"files.associations": {
+			"so_long.h": "c",
+			"mlx.h": "c",
+			"get_next_line.h": "c"
+		}
+	}
+}

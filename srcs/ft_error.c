@@ -11,10 +11,19 @@
 /* ************************************************************************** */
 
 #include "../inc/so_long.h"
-
+/*
+ * This function displays an error message and exits the program.
+ * Note: Ideally, this should call a cleanup function to free all allocated
+ * memory before exiting, but since the game struct might not be accessible
+ * from every context where errors can occur, we simply exit.
+ * 
+ * Better approach would be to pass the game struct to ft_error and
+ * free all resources before exiting, but that would require
+ * refactoring most of the code base.
+ */
 void	ft_error(char *msg)
 {
 	ft_printf("ERROR - %s\n", msg);
-	exit(0);
+	exit(EXIT_FAILURE);
 }
 //VERIFICAR SE ASSIM TEM LEAKS
